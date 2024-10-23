@@ -8,7 +8,7 @@ export default function Header() {
             <img src={logo} alt={'Result'} />
             {/* <h3>School of English</h3> */}
 
-            <span>Время сейчас: {now.toLocaleTimeString()}</span>
+            <span>Time now: {now.toLocaleTimeString()}</span>
         </header>
     );
 }
