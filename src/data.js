@@ -22,8 +22,8 @@ export const ways = [
 ];
 
 export const differences = {
-  way: 'Узконаправленный подход. Учим только фронтенду, поэтому вы получаете именно те знания, за которыми пришли.',
-  easy: 'Доступность обучения. Простыми словами объясняем сложные темы на понятных примерах.',
+  way: 'We help you gain confidence and improve your speaking, pronunciation and vocabulary.',
+  easy: 'Target your goals with an English online course designed around your needs.',
   program:
-    'Концентрация знаний. Например, модуль «HTML&CSS» даст вам столько же умений и навыков, как и 6 месяцев обучения по этой программе в госуниверситете.',
+    'The advantages? They will conduct lessons in English as well as elements of Portuguese to help your child become fluent in the language.',
 };
