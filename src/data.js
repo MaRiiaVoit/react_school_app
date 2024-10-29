@@ -19,6 +19,11 @@ export const ways = [
     description:
       'Academic excellence is achieved when students and teachers share a love of learning.  Extending beyond the curriculum, we explore each subject in richness and depth.',
   },
+  {
+    title: 'The schools trust board.',
+    description:
+      'The British School of Lisbon is chartered by The Schools Trust, a United Kingdom school governance body.',
+  },
 ];
 
 export const differences = {
