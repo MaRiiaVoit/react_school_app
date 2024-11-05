@@ -1,54 +1,95 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Button from './Button/Button'
 
+function StateVsRef() {
+    const input = useRef()
+    const [show, setShow] = useState(false)
+
+    function handleKeyDown(event) {
+        if (event.key === 'Enter') {
+            setShow(true)
+        }
+    }
+
+
+    console.log(input)
+
+    return (
+        <div>
+            <h3>Input value: {show && input.current.value}</h3>
+            <input
+                ref={input}
+                type="text"
+                onKeyDown={handleKeyDown}
+                className="control" />
+        </div>
+    )
+}
+
 export default function FeedbackSection() {
-    const [name, setName] = useState('')
-    const [hasError, setHasError] = useState(true)
-    const [reason, setReason] = useState('help')
+    const [form, setForm] = useState({
+        name: '',
+        hasError: false,
+        reason: 'help'
+    })
+    // const [name, setName] = useState('')
+    // const [hasError, setHasError] = useState(true)
+    // const [reason, setReason] = useState('help')
 
     function handleNameChange(event) {
-        console.log(event.target.value)
-        setName(event.target.value)
-        setHasError(event.target.value.trim().length === 0)
+        // console.log(event.target.value)
+        // setName(event.target.value)
+        // setHasError(event.target.value.trim().length === 0)
+        setForm((prev) => ({
+            ...prev,
+            name: event.target.value,
+            hasError: event.target.value.trim().length === 0,
+        }))
     }
 
-    function toggleError() {
-        setHasError((prev) => !prev)
-    }
+    // function toggleError() {
+    // setHasError((prev) => !prev)
+    // }
 
     return (
         <section>
             <h3>Feedback</h3>
 
-            <Button onClick={toggleError}>Toggle Error</Button>
+            {/* <Button onClick={toggleError}>Toggle Error</Button> */}
 
-            <form>
+            <form style={{ marginBottom: '1rem' }}>
                 <label htmlFor="name">Your name</label>
                 <input
                     type="text"
                     id="name"
                     className="control"
-                    value={name}
+                    value={form.name}
                     style={{
-                        border: hasError ? '1px solid red' : null
+                        border: form.hasError ? '1px solid red' : null,
                     }}
                     onChange={handleNameChange} />
 
                 <label htmlFor="reason">Reason for contacting</label>
-                <select id="reason" className="control" value={reason} onChange={event => setReason(event.target.value)}>
+                <select
+                    id="reason"
+                    className="control"
+                    value={form.reason}
+                    onChange={(event) =>
+                        setForm((prev) => ({ ...prev, reason: event.target.value }))
+                    }
+                >
                     <option value="error">Error</option>
                     <option value="help">Need help</option>
                     <option value="suggest">Proposal</option>
                 </select>
 
-                <pre>
-                    Name: {name}
-                    <br />
-                    Reason: {reason}
-                </pre>
+                {/* <pre>
+                    {JSON.stringify(form, null, 2)}
+                </pre> */}
 
-                <Button disabled={hasError} isActive={!hasError}>Send</Button>
+                <Button disabled={form.hasError} isActive={!form.hasError}>Send</Button>
             </form>
+            <StateVsRef />
         </section>
     )
 }
