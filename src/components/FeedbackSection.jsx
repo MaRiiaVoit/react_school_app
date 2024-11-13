@@ -11,9 +11,6 @@ function StateVsRef() {
         }
     }
 
-
-    console.log(input)
-
     return (
         <div>
             <h3>Input value: {show && input.current.value}</h3>
