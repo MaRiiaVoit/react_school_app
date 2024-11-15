@@ -1,4 +1,4 @@
-import Header from "./components/Header/Header";
+import Header from './components/Header/Header';
 import TeachingSection from './components/TeachingSection'
 import DifferencesSection from './components/DifferencesSection'
 import IntroSection from './components/IntroSection'
@@ -10,10 +10,6 @@ import EffectSection from './components/EffectSection'
 export default function App() {
   const [visible, setVisible] = useState(true)
   const [tab, setTab] = useState('effect')
-
-  // setTimeout(() => {
-  //   setVisible(false)
-  // }, 3000)
 
   return (
     <>

@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import logo from '/logo-name.svg'
 import { styled } from 'styled-components'
-// import './Header.css'
 
 const HeaderContainer = styled.header`
     height: 50px;

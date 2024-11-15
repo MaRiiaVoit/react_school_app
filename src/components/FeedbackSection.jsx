@@ -29,14 +29,8 @@ export default function FeedbackSection() {
         hasError: false,
         reason: 'help'
     })
-    // const [name, setName] = useState('')
-    // const [hasError, setHasError] = useState(true)
-    // const [reason, setReason] = useState('help')
 
     function handleNameChange(event) {
-        // console.log(event.target.value)
-        // setName(event.target.value)
-        // setHasError(event.target.value.trim().length === 0)
         setForm((prev) => ({
             ...prev,
             name: event.target.value,
@@ -44,15 +38,9 @@ export default function FeedbackSection() {
         }))
     }
 
-    // function toggleError() {
-    // setHasError((prev) => !prev)
-    // }
-
     return (
         <section>
             <h3>Feedback</h3>
-
-            {/* <Button onClick={toggleError}>Toggle Error</Button> */}
 
             <form style={{ marginBottom: '1rem' }}>
                 <label htmlFor="name">Your name</label>
@@ -79,10 +67,6 @@ export default function FeedbackSection() {
                     <option value="help">Need help</option>
                     <option value="suggest">Proposal</option>
                 </select>
-
-                {/* <pre>
-                    {JSON.stringify(form, null, 2)}
-                </pre> */}
 
                 <Button disabled={form.hasError} isActive={!form.hasError}>Send</Button>
             </form>
